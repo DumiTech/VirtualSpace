@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { Member } from 'src/app/models/member';
 import { MembersService } from 'src/app/services/members.service';
+import { ActivatedRoute } from '@angular/router';
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from '@kolkov/ngx-gallery';
 
 @Component({
   selector: 'app-member-detail',
@@ -28,8 +28,7 @@ export class MemberDetailComponent implements OnInit {
         imageAnimation: NgxGalleryAnimation.Slide,
         preview: false
       }
-    ];
-
+    ]
   }
 
   getImages(): NgxGalleryImage[] {
@@ -39,18 +38,16 @@ export class MemberDetailComponent implements OnInit {
         small: photo?.url,
         medium: photo?.url,
         big: photo?.url
-      });
+      })
     }
     return imageUrls;
   }
 
-  // tslint:disable-next-line:typedef
   loadMember() {
     this.memberService.getMember(this.route.snapshot.paramMap.get('username')).subscribe(member => {
       this.member = member;
-
       this.galleryImages = this.getImages();
-    });
+    })
   }
 
 }

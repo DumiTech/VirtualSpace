@@ -17,20 +17,15 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // tslint:disable-next-line:typedef
   login() {
     this.accountService.login(this.model).subscribe(response => {
       this.router.navigateByUrl('/members');
     });
   }
 
-  // tslint:disable-next-line:typedef
   logout() {
     this.accountService.logout();
     this.router.navigateByUrl('/');
   }
-
-  // tslint:disable-next-line:typedef
-
 
 }
