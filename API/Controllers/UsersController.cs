@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+<<<<<<< HEAD
 using System.Security.Claims;
+=======
+>>>>>>> b4b9322026ea1e9bb5e94698869094a105ddd495
 using System.Threading.Tasks;
 using API.DTOs;
 using API.Interfaces;
@@ -26,6 +29,7 @@ namespace API.Controllers
             var users = await _userRepository.GetMembersAsync();
 
             return Ok(users);   //we had to wrap it inside an OK response 
+<<<<<<< HEAD
         }
 
         [HttpGet("{username}")]
@@ -47,6 +51,14 @@ namespace API.Controllers
             if (await _userRepository.SaveAllAsync()) return NoContent();
 
             return BadRequest("Failed to update user");
+=======
+        }
+
+        [HttpGet("{username}")]
+        public async Task<ActionResult<MemberDto>> GetUser(string username)
+        {
+            return await _userRepository.GetMemberAsync(username);
+>>>>>>> b4b9322026ea1e9bb5e94698869094a105ddd495
         }
     }
 }

@@ -15,7 +15,10 @@ namespace API.Helpers
                     src.Photos.FirstOrDefault(x => x.IsMain).Url))
                 .ForMember(dest => dest.Age, ParallelMergeOptions => ParallelMergeOptions.MapFrom(src => src.DateOfBirth.CalculateAge()));
             CreateMap<Photo, PhotoDto>();
+<<<<<<< HEAD
             CreateMap<MemberUpdateDto, AppUser>();
+=======
+>>>>>>> b4b9322026ea1e9bb5e94698869094a105ddd495
         }
     }
 }

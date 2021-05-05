@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+<<<<<<< HEAD
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
+=======
+>>>>>>> b4b9322026ea1e9bb5e94698869094a105ddd495
 import { environment } from 'src/environments/environment';
 import { Member } from '../models/member';
 
@@ -11,6 +14,7 @@ import { Member } from '../models/member';
 })
 export class MembersService {
   baseUrl = environment.apiUrl;
+<<<<<<< HEAD
   members: Member[] = [];
 
   constructor(private http: HttpClient) { }
@@ -39,4 +43,17 @@ export class MembersService {
       })
     )
   }
+=======
+
+  constructor(private http: HttpClient) { }
+
+  // tslint:disable-next-line:typedef
+  getMembers() {
+    return this.http.get<Member[]>(this.baseUrl + 'users');
+  }
+  // tslint:disable-next-line:typedef
+  getMember(username: string) {
+    return this.http.get<Member>(this.baseUrl + 'users/' + username);
+  }
+>>>>>>> b4b9322026ea1e9bb5e94698869094a105ddd495
 }
