@@ -1,14 +1,15 @@
 using System.Collections.Generic;
-<<<<<<< HEAD
+using System.Linq;
 using System.Security.Claims;
-=======
->>>>>>> b4b9322026ea1e9bb5e94698869094a105ddd495
 using System.Threading.Tasks;
+using API.Data;
 using API.DTOs;
+using API.Entities;
 using API.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -17,7 +18,7 @@ namespace API.Controllers
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
-        public UsersController(IUserRepository userRepository, IMapper mapper) // also injecting the IMapper interface
+        public UsersController(IUserRepository userRepository, IMapper mapper)
         {
             _mapper = mapper;
             _userRepository = userRepository;
@@ -28,8 +29,7 @@ namespace API.Controllers
         {
             var users = await _userRepository.GetMembersAsync();
 
-            return Ok(users);   //we had to wrap it inside an OK response 
-<<<<<<< HEAD
+            return Ok(users);
         }
 
         [HttpGet("{username}")]
@@ -51,14 +51,6 @@ namespace API.Controllers
             if (await _userRepository.SaveAllAsync()) return NoContent();
 
             return BadRequest("Failed to update user");
-=======
-        }
-
-        [HttpGet("{username}")]
-        public async Task<ActionResult<MemberDto>> GetUser(string username)
-        {
-            return await _userRepository.GetMemberAsync(username);
->>>>>>> b4b9322026ea1e9bb5e94698869094a105ddd495
         }
     }
 }

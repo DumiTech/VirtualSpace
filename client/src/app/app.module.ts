@@ -22,10 +22,7 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
-<<<<<<< HEAD
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
-=======
->>>>>>> b4b9322026ea1e9bb5e94698869094a105ddd495
 
 @NgModule({
   declarations: [
@@ -42,12 +39,9 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
     TestErrorsComponent,
     NotFoundComponent,
     ServerErrorComponent,
-<<<<<<< HEAD
     MemberCardComponent,
-    MemberEditComponent
-=======
+    MemberEditComponent,
     MemberCardComponent
->>>>>>> b4b9322026ea1e9bb5e94698869094a105ddd495
   ],
   imports: [
     BrowserModule,
