@@ -1,11 +1,11 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-import { take } from 'rxjs/operators';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { Member } from 'src/app/models/member';
 import { User } from 'src/app/models/user';
 import { AccountService } from 'src/app/services/account.service';
 import { MembersService } from 'src/app/services/members.service';
+import { take } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-member-edit',
@@ -27,9 +27,9 @@ export class MemberEditComponent implements OnInit {
       this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.loadMember();
-  } 
+  }
 
   loadMember() {
     this.memberService.getMember(this.user.username).subscribe(member => {
@@ -39,7 +39,7 @@ export class MemberEditComponent implements OnInit {
 
   updateMember() {
     this.memberService.updateMember(this.member).subscribe(() => {
-      this.toastr.success('Profile updated succesfully');
+      this.toastr.success('Profile updated successfully');
       this.editForm.reset(this.member);
     })
   }

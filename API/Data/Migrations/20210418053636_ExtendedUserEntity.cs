@@ -95,7 +95,7 @@ namespace API.Data.Migrations
                         column: x => x.AppUserID,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);   // if we delete a usser => we delete all of related photos for that user as well
+                        onDelete: ReferentialAction.Cascade);   // if we delete a user => we delete all of related photos for that user as well
                 });
 
             migrationBuilder.CreateIndex(
